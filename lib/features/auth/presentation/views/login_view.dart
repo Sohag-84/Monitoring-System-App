@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monitoring_system/core/constants/app_assets.dart';
 import 'package:monitoring_system/core/constants/app_strings.dart';
 import 'package:monitoring_system/core/theme/app_colors.dart';
+import 'package:monitoring_system/core/widgets/custom_button.dart';
 import 'package:monitoring_system/features/auth/presentation/cubit/login_cubit.dart';
 
 class LoginView extends StatefulWidget {
@@ -115,7 +116,59 @@ class _LoginViewState extends State<LoginView> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 16.h),
+
+                      // Forgot Password Text
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: GestureDetector(
+                          onTap: () {
+                            print('Forgot password tapped!');
+                          },
+                          child: Text(
+                            forgotPassword,
+                            style: TextStyle(
+                              color: AppColors.greyColor,
+                              fontSize: 13,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 15.h),
+
+                      // Login Button
+                      customButton(onTap: () {}, text: login),
+                      SizedBox(height: 8.h),
+                      // Register Now Text
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              dontHaveAccount,
+                              style: TextStyle(
+                                color: AppColors.greyColor,
+                                fontSize: 14.sp,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                print('Register Now tapped!');
+                              },
+                              child: Text(
+                                registerNow,
+                                style: TextStyle(
+                                  color: AppColors.primaryColor,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   );
                 },
