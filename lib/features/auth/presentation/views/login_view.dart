@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monitoring_system/core/constants/app_assets.dart';
 import 'package:monitoring_system/core/constants/app_strings.dart';
 import 'package:monitoring_system/core/theme/app_colors.dart';
+import 'package:monitoring_system/features/auth/presentation/cubit/login_cubit.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -61,40 +63,62 @@ class _LoginViewState extends State<LoginView> {
                   topRight: Radius.circular(20.r),
                 ),
               ),
-              child: Column(
-                children: [
-                  Text(
-                    login,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 28.sp,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 32.h),
-
-                  // Username TextField
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: usernameHint,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.r)),
+              child: BlocBuilder<LoginCubit, LoginState>(
+                builder: (context, state) {
+                  return Column(
+                    children: [
+                      Text(
+                        login,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 28.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 16.h),
+                      SizedBox(height: 32.h),
 
-                  // Password TextField
-                  TextField(
-                    decoration: InputDecoration(
-                      hintText: passwordHint,
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10.r)),
+                      // Username TextField
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: usernameHint,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.r),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 16.h),
-                ],
+                      SizedBox(height: 16.h),
+
+                      // Password TextField
+                      TextField(
+                        obscureText: !state.isPasswordVisible,
+                        decoration: InputDecoration(
+                          hintText: passwordHint,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.r),
+                            ),
+                          ),
+                          suffixIcon: IconButton(
+                            icon: Icon(
+                              state.isPasswordVisible
+                                  ? Icons.visibility
+                                  : Icons.visibility_off,
+                              color: Colors.grey,
+                            ),
+                            onPressed: () {
+                              context
+                                  .read<LoginCubit>()
+                                  .togglePasswordVisibility();
+                            },
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 16.h),
+                    ],
+                  );
+                },
               ),
             ),
           ],
