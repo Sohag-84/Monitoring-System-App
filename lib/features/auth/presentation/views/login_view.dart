@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:monitoring_system/core/constants/app_assets.dart';
 import 'package:monitoring_system/core/constants/app_strings.dart';
 import 'package:monitoring_system/core/theme/app_colors.dart';
 import 'package:monitoring_system/core/widgets/custom_button.dart';
 import 'package:monitoring_system/features/auth/presentation/cubit/login_cubit.dart';
+import 'package:monitoring_system/routes/app_routes.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -137,7 +139,12 @@ class _LoginViewState extends State<LoginView> {
                       SizedBox(height: 15.h),
 
                       // Login Button
-                      customButton(onTap: () {}, text: login),
+                      customButton(
+                        onTap: () {
+                          context.pushNamed(AppRoutes.dashboard.name);
+                        },
+                        text: login,
+                      ),
                       SizedBox(height: 8.h),
                       // Register Now Text
                       Align(

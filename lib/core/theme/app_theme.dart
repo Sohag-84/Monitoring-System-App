@@ -9,6 +9,12 @@ class AppTheme {
     primaryColor: AppColors.primaryColor,
     scaffoldBackgroundColor: Colors.white,
     inputDecorationTheme: inputDecorationTheme,
+    appBarTheme: appBarTheme,
+  );
+
+  static AppBarTheme appBarTheme = AppBarTheme(
+    backgroundColor: AppColors.whiteColor,
+    centerTitle: true,
   );
 
   static InputDecorationTheme inputDecorationTheme = InputDecorationTheme(

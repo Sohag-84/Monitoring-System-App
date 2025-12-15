@@ -6,3 +6,4 @@ const passwordHint = "Password";
 const forgotPassword = "Forgot Password?";
 const dontHaveAccount = "Don't have an account? ";
 const registerNow = "Register Now";
+const scm = "SCM";
