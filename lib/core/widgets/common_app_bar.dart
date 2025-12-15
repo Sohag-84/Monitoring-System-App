@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-AppBar cummonAppBar() {
+AppBar commonAppBar() {
   return AppBar(
     title: Text('Dashboard'),
     actions: [
