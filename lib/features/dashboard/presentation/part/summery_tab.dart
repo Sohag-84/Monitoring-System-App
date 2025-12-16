@@ -73,7 +73,6 @@ class _SummeryTabState extends State<SummeryTab> with TickerProviderStateMixin {
               ),
             ),
           ),
-          SizedBox(height: 10.h),
 
           //source load tabbar
           sourceLoadTabbar(),
@@ -124,7 +123,7 @@ class _SummeryTabState extends State<SummeryTab> with TickerProviderStateMixin {
               controller: _sourceLoadTabController,
               children: const [
                 SourceTab(),
-                Center(child: Text('Load Page')),
+                Center(child: Text('No Data Found')),
               ],
             ),
           ),

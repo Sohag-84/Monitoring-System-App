@@ -16,7 +16,7 @@ class _SourceTabState extends State<SourceTab> {
       itemCount: sourceDataItems.length,
       itemBuilder: (BuildContext context, int index) {
         final data = sourceDataItems[index];
-        return sourceTabDataViewCard(data: data);
+        return sourceTabDataViewCard(data: data, onTap: () {});
       },
     );
   }

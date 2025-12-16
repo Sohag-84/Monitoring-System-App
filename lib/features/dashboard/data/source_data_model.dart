@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DataCardModel {
+class SourceDataModel {
   final String iconPath;
   final String title;
   final String status;
@@ -9,7 +9,8 @@ class DataCardModel {
   final String data2Label;
   final String data2Value;
   final Color titleIndicatorColor;
-  DataCardModel({
+  
+  SourceDataModel({
     required this.iconPath,
     required this.title,
     required this.status,
