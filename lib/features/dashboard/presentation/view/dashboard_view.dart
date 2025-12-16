@@ -46,7 +46,7 @@ class _DashboardViewState extends State<DashboardView>
 
   Widget dashboardTabBarSection() {
     return Container(
-      height: 400.h,
+      height: 500.h,
       decoration: BoxDecoration(
         color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(8.r),
@@ -56,7 +56,6 @@ class _DashboardViewState extends State<DashboardView>
           TabBar(
             controller: _tabController,
             labelColor: AppColors.whiteColor,
-            unselectedLabelColor: Colors.black,
             labelStyle: TextStyle(
               color: AppColors.whiteColor,
               fontSize: 14,
@@ -78,7 +77,7 @@ class _DashboardViewState extends State<DashboardView>
               Tab(child: Center(child: Text("Data"))),
             ],
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 8.h),
 
           Expanded(
             child: TabBarView(

@@ -10,4 +10,5 @@ class AppColors {
   static const navyGreyColor = Color(0xFF646984);
   static const chartColor = Color(0xFF398FC9);
   static const navyBlueColor = Color(0xFF04063E);
+  static const cardBgColor = Color(0xFFA5A7B9);
 }
