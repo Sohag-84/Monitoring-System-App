@@ -7,5 +7,5 @@ const fireIcon = 'assets/images/fire.png';
 const generatorIcon = 'assets/images/generator.png';
 const plantSummeryIcon = 'assets/images/plant_summary.png';
 const powerGridIcon = 'assets/images/power_grid.png';
-const solarPannelIcon = 'assets/images/solar_panel.png';
+const solarPannelIcon = 'assets/images/solar_pannel.png';
 const tapIcon = 'assets/images/tap.png';

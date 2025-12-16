@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monitoring_system/core/theme/app_colors.dart';
+import 'package:monitoring_system/features/dashboard/presentation/part/source_tab.dart';
 
 class SummeryTab extends StatefulWidget {
   const SummeryTab({super.key});
@@ -39,6 +40,7 @@ class _SummeryTabState extends State<SummeryTab> with TickerProviderStateMixin {
             ),
           ),
           Divider(color: AppColors.greyColor),
+
           //chart container
           Container(
             height: 150.h,
@@ -121,7 +123,7 @@ class _SummeryTabState extends State<SummeryTab> with TickerProviderStateMixin {
             child: TabBarView(
               controller: _sourceLoadTabController,
               children: const [
-                Center(child: Text('Source Page')),
+                SourceTab(),
                 Center(child: Text('Load Page')),
               ],
             ),
