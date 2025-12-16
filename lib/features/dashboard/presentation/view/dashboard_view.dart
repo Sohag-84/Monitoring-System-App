@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monitoring_system/core/theme/app_colors.dart';
 import 'package:monitoring_system/core/widgets/common_app_bar.dart';
+import 'package:monitoring_system/features/dashboard/presentation/part/summery_tab.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
@@ -83,7 +84,7 @@ class _DashboardViewState extends State<DashboardView>
             child: TabBarView(
               controller: _tabController,
               children: const [
-                Center(child: Text('Summery Page')),
+                SummeryTab(),
                 Center(child: Text('SLD Page')),
                 Center(child: Text('Data Page')),
               ],
