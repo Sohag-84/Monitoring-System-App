@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:monitoring_system/features/dashboard/data/dumy_data.dart';
 import 'package:monitoring_system/features/dashboard/presentation/widgets/source_tab_data_view_card.dart';
+import 'package:monitoring_system/routes/app_routes.dart';
 
 class SourceTab extends StatefulWidget {
   const SourceTab({super.key});
@@ -16,7 +18,12 @@ class _SourceTabState extends State<SourceTab> {
       itemCount: sourceDataItems.length,
       itemBuilder: (BuildContext context, int index) {
         final data = sourceDataItems[index];
-        return sourceTabDataViewCard(data: data, onTap: () {});
+        return sourceTabDataViewCard(
+          data: data,
+          onTap: () {
+            context.pushNamed(AppRoutes.srouceTabDetails.name);
+          },
+        );
       },
     );
   }

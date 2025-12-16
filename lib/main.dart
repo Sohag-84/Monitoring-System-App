@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monitoring_system/core/theme/app_theme.dart';
 import 'package:monitoring_system/features/auth/presentation/cubit/login_cubit.dart';
+import 'package:monitoring_system/features/details/presentation/cubit/radio_button_cubit.dart';
 import 'package:monitoring_system/routes/app_pages.dart';
 
 void main() {
@@ -20,7 +21,10 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MultiBlocProvider(
-          providers: [BlocProvider(create: (context) => LoginCubit())],
+          providers: [
+            BlocProvider(create: (context) => LoginCubit()),
+            BlocProvider(create: (context) => RadioButtonCubit()),
+          ],
           child: MaterialApp.router(
             title: 'Monitoring System',
             debugShowCheckedModeBanner: false,
