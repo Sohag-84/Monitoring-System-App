@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:monitoring_system/core/constants/app_strings.dart';
 
 AppBar commonAppBar() {
   return AppBar(
-    title: Text('Dashboard'),
+    title: Text(scm),
     actions: [
       Stack(
         children: [

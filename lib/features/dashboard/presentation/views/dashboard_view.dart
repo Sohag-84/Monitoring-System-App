@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:monitoring_system/core/theme/app_colors.dart';
 import 'package:monitoring_system/core/widgets/common_app_bar.dart';
 import 'package:monitoring_system/features/dashboard/data/dumy_data.dart';
 import 'package:monitoring_system/features/dashboard/presentation/part/summery_tab.dart';
 import 'package:monitoring_system/features/dashboard/presentation/widgets/grid_item_card.dart';
+import 'package:monitoring_system/routes/app_routes.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
@@ -56,7 +58,12 @@ class _DashboardViewState extends State<DashboardView>
               itemCount: gridItems.length,
               itemBuilder: (BuildContext context, int index) {
                 final item = gridItems[index];
-                return GridItemCard(item: item, onTap: () {});
+                return GridItemCard(
+                  item: item,
+                  onTap: () {
+                    context.pushNamed(AppRoutes.gridItemDetails.name);
+                  },
+                );
               },
             ),
 

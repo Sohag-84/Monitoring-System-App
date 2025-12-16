@@ -9,3 +9,4 @@ const plantSummeryIcon = 'assets/images/plant_summery.png';
 const powerGridIcon = 'assets/images/power_grid.png';
 const solarPannelIcon = 'assets/images/solar_pannel.png';
 const tapIcon = 'assets/images/tap.png';
+const emptyIcon = "assets/images/empty_image.png";
