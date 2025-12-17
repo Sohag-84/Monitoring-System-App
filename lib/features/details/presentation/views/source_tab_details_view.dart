@@ -5,9 +5,10 @@ import 'package:monitoring_system/core/theme/app_colors.dart';
 import 'package:monitoring_system/core/widgets/common_app_bar.dart';
 import 'package:monitoring_system/features/details/data/dummy_data.dart';
 import 'package:monitoring_system/features/details/presentation/cubit/radio_button/radio_button_cubit.dart';
+import 'package:monitoring_system/features/details/presentation/part/revenue_view_section.dart';
 import 'package:monitoring_system/features/details/presentation/widgets/circular_chart_widget.dart';
-import 'package:monitoring_system/features/details/presentation/widgets/date_range_search_bar.dart';
-import 'package:monitoring_system/features/details/presentation/widgets/energy_chart_item.dart';
+import 'package:monitoring_system/features/details/presentation/part/date_range_search_bar.dart';
+import 'package:monitoring_system/features/details/presentation/part/energy_chart_item.dart';
 import 'package:monitoring_system/features/details/presentation/widgets/radio_button_widget.dart';
 
 class SourceTabDetailsView extends StatelessWidget {
@@ -63,9 +64,7 @@ class SourceTabDetailsView extends StatelessWidget {
                                       ),
                               ],
                             )
-                          : Container(
-                              child: Center(child: Text("Revenue View")),
-                            );
+                          : RevenueViewSection();
                     },
                   ),
                 ),

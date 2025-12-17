@@ -5,11 +5,13 @@ import 'package:monitoring_system/core/utils/circular_gauge_painter.dart';
 class CircularChartWidget extends StatelessWidget {
   final double value;
   final String unit;
+  final double maxValue;
 
   const CircularChartWidget({
     super.key,
     required this.value,
     this.unit = 'kWh/Sqft',
+    this.maxValue = 100.00,
   });
 
   @override
@@ -24,7 +26,7 @@ class CircularChartWidget extends StatelessWidget {
             unit: unit,
             activeColor: AppColors.progressActiveColor,
             backgroundColor: AppColors.progressInactiveColor,
-            maxValue: 100.0,
+            maxValue: maxValue,
             strokeWidth: 20.0,
             unitTextColor: AppColors.navyBlueColor,
           ),

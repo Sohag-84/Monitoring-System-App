@@ -66,7 +66,7 @@ class CircularGaugePainter extends CustomPainter {
         text: value.toStringAsFixed(2),
         style: TextStyle(
           color: valueTextColor,
-          fontSize: size.width * 0.15,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -85,7 +85,11 @@ class CircularGaugePainter extends CustomPainter {
     final textPainterUnit = TextPainter(
       text: TextSpan(
         text: unit,
-        style: TextStyle(color: unitTextColor, fontSize: size.width * 0.06),
+        style: TextStyle(
+          color: unitTextColor,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+        ),
       ),
       textDirection: TextDirection.ltr,
     );
