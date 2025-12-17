@@ -4,8 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monitoring_system/core/theme/app_colors.dart';
 import 'package:monitoring_system/core/widgets/common_app_bar.dart';
 import 'package:monitoring_system/features/details/data/dummy_data.dart';
-import 'package:monitoring_system/features/details/presentation/cubit/radio_button_cubit.dart';
+import 'package:monitoring_system/features/details/presentation/cubit/radio_button/radio_button_cubit.dart';
 import 'package:monitoring_system/features/details/presentation/widgets/circular_chart_widget.dart';
+import 'package:monitoring_system/features/details/presentation/widgets/date_range_search_bar.dart';
 import 'package:monitoring_system/features/details/presentation/widgets/energy_chart_item.dart';
 import 'package:monitoring_system/features/details/presentation/widgets/radio_button_widget.dart';
 
@@ -36,19 +37,41 @@ class SourceTabDetailsView extends StatelessWidget {
                     ),
                     border: Border.all(color: AppColors.borderColor),
                   ),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 50),
-                      CircularChartWidget(value: 55),
-                      sortOptionRadioRow(),
-                      //today's engery chart list
-                      EnergyChartListItem(energyChartList: todaysEnergyCharts),
-                    ],
+                  child: BlocBuilder<RadioButtonCubit, RadioButtonState>(
+                    builder: (context, state) {
+                      return state.selectedOption == "Data View"
+                          ? Column(
+                              children: [
+                                SizedBox(height: 50),
+                                CircularChartWidget(value: 55),
+                                sortOptionRadioRow(),
+                                //today's engery chart list
+                                state.selectSortOption == "Today's Data"
+                                    ? EnergyChartListItem(
+                                        energyChartList: todaysEnergyCharts,
+                                      )
+                                    : Column(
+                                        children: [
+                                          //date wise search
+                                          DateRangeSearchBar(),
+                                          //search list
+                                          EnergyChartListItem(
+                                            energyChartList:
+                                                dateWiseEnergyCharts,
+                                          ),
+                                        ],
+                                      ),
+                              ],
+                            )
+                          : Container(
+                              child: Center(child: Text("Revenue View")),
+                            );
+                    },
                   ),
                 ),
 
                 // data view and revenue view radio buttons
-                dataRevenureRadioRow(context),
+                dataRevenueRadioRow(context),
               ],
             ),
           );
@@ -97,7 +120,7 @@ class SourceTabDetailsView extends StatelessWidget {
     );
   }
 
-  Widget dataRevenureRadioRow(BuildContext context) {
+  Widget dataRevenueRadioRow(BuildContext context) {
     return Positioned(
       top: MediaQuery.sizeOf(context).height * 0.025,
       left: 25.w,
