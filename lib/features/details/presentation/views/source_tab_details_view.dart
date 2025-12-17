@@ -15,7 +15,6 @@ class SourceTabDetailsView extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       appBar: commonAppBar(),
       body: Stack(
-        clipBehavior: Clip.hardEdge,
         children: [
           Container(
             margin: EdgeInsets.only(top: 40.h),
@@ -28,53 +27,103 @@ class SourceTabDetailsView extends StatelessWidget {
               ),
               border: Border.all(color: AppColors.borderColor),
             ),
-            child: Column(children: [
-                
-              ],
+            child: Column(
+              children: [SizedBox(height: 50), sortOptionRadioRow()],
             ),
           ),
 
           // data view and revenue view radio buttons
-          Positioned(
-            top: MediaQuery.sizeOf(context).height * 0.025,
-            left: 25.w,
-            right: 25.w,
-            child: BlocBuilder<RadioButtonCubit, RadioButtonState>(
-              builder: (context, state) {
-                return Container(
-                  height: 50.h,
-                  padding: EdgeInsets.only(right: 12.w),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: AppColors.whiteColor,
-                    borderRadius: BorderRadius.circular(12.r),
-                    border: Border.all(color: AppColors.borderColor),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      // Data View Option
-                      radioButtonWidget(
-                        context,
-                        label: 'Data View',
-                        value: 'Data View',
-                        groupValue: state.selectedOption,
-                      ),
+          dataRevenureRadioRow(context),
+        ],
+      ),
+    );
+  }
 
-                      // Revenue View Option
-                      radioButtonWidget(
-                        context,
-                        label: 'Revenue View',
-                        value: 'Revenue View',
-                        groupValue: state.selectedOption,
-                      ),
-                    ],
-                  ),
+  Widget sortOptionRadioRow() {
+    return BlocBuilder<RadioButtonCubit, RadioButtonState>(
+      builder: (context, state) {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            // Data View Option
+            radioButtonWidget(
+              context,
+              label: "Today's Data",
+              value: "Today's Data",
+              groupValue: state.selectSortOption,
+              onTap: () {
+                context.read<RadioButtonCubit>().selectSortOption(
+                  newSortOption: "Today's Data",
                 );
               },
             ),
-          ),
-        ],
+
+            // Revenue View Option
+            radioButtonWidget(
+              context,
+              label: 'Custom Date Data',
+              value: 'Custom Date Data',
+              groupValue: state.selectSortOption,
+              onTap: () {
+                context.read<RadioButtonCubit>().selectSortOption(
+                  newSortOption: 'Custom Date Data',
+                );
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget dataRevenureRadioRow(BuildContext context) {
+    return Positioned(
+      top: MediaQuery.sizeOf(context).height * 0.025,
+      left: 25.w,
+      right: 25.w,
+      child: BlocBuilder<RadioButtonCubit, RadioButtonState>(
+        builder: (context, state) {
+          return Container(
+            height: 48.h,
+            padding: EdgeInsets.only(right: 12.w),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: AppColors.whiteColor,
+              borderRadius: BorderRadius.circular(12.r),
+              border: Border.all(color: AppColors.borderColor),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                // Data View Option
+                radioButtonWidget(
+                  context,
+                  label: 'Data View',
+                  value: 'Data View',
+                  groupValue: state.selectedOption,
+                  onTap: () {
+                    context.read<RadioButtonCubit>().selectOption(
+                      newOption: 'Data View',
+                    );
+                  },
+                ),
+
+                // Revenue View Option
+                radioButtonWidget(
+                  context,
+                  label: 'Revenue View',
+                  value: 'Revenue View',
+                  groupValue: state.selectedOption,
+                  onTap: () {
+                    context.read<RadioButtonCubit>().selectOption(
+                      newOption: 'Revenue View',
+                    );
+                  },
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

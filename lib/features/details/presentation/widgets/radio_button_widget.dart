@@ -8,11 +8,10 @@ Widget radioButtonWidget(
   required String label,
   required String value,
   required String groupValue,
+  required VoidCallback onTap,
 }) {
   return GestureDetector(
-    onTap: () {
-      context.read<RadioButtonCubit>().selectOption(newOption: value);
-    },
+    onTap: onTap,
     child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
