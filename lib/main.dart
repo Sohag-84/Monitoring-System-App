@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monitoring_system/core/theme/app_theme.dart';
 import 'package:monitoring_system/features/auth/presentation/cubit/login_cubit.dart';
+import 'package:monitoring_system/features/details/presentation/cubit/arrow_button_up_down/arrow_button_cubit.dart';
 import 'package:monitoring_system/features/details/presentation/cubit/date_range_picker/date_range_cubit.dart';
 import 'package:monitoring_system/features/details/presentation/cubit/radio_button/radio_button_cubit.dart';
 import 'package:monitoring_system/routes/app_pages.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (context) => LoginCubit()),
             BlocProvider(create: (context) => RadioButtonCubit()),
             BlocProvider(create: (context) => DateRangeCubit()),
+            BlocProvider(create: (context) => ArrowButtonCubit()),
           ],
           child: MaterialApp.router(
             title: 'Monitoring System',

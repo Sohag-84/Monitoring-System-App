@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:monitoring_system/features/dashboard/data/dumy_data.dart';
+import 'package:monitoring_system/features/dashboard/data/dummy_data.dart';
 import 'package:monitoring_system/features/dashboard/presentation/widgets/source_tab_data_view_card.dart';
 import 'package:monitoring_system/routes/app_routes.dart';
 
