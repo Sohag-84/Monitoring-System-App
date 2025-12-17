@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monitoring_system/core/theme/app_colors.dart';
 import 'package:monitoring_system/core/widgets/common_app_bar.dart';
 import 'package:monitoring_system/features/details/presentation/cubit/radio_button_cubit.dart';
+import 'package:monitoring_system/features/details/presentation/widgets/circular_chart_widget.dart';
 import 'package:monitoring_system/features/details/presentation/widgets/radio_button_widget.dart';
 
 class SourceTabDetailsView extends StatelessWidget {
@@ -28,7 +29,11 @@ class SourceTabDetailsView extends StatelessWidget {
               border: Border.all(color: AppColors.borderColor),
             ),
             child: Column(
-              children: [SizedBox(height: 50), sortOptionRadioRow()],
+              children: [
+                SizedBox(height: 50),
+                CircularChartWidget(value: 55),
+                sortOptionRadioRow(),
+              ],
             ),
           ),
 
@@ -42,35 +47,38 @@ class SourceTabDetailsView extends StatelessWidget {
   Widget sortOptionRadioRow() {
     return BlocBuilder<RadioButtonCubit, RadioButtonState>(
       builder: (context, state) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            // Data View Option
-            radioButtonWidget(
-              context,
-              label: "Today's Data",
-              value: "Today's Data",
-              groupValue: state.selectSortOption,
-              onTap: () {
-                context.read<RadioButtonCubit>().selectSortOption(
-                  newSortOption: "Today's Data",
-                );
-              },
-            ),
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              // Data View Option
+              radioButtonWidget(
+                context,
+                label: "Today's Data",
+                value: "Today's Data",
+                groupValue: state.selectSortOption,
+                onTap: () {
+                  context.read<RadioButtonCubit>().selectSortOption(
+                    newSortOption: "Today's Data",
+                  );
+                },
+              ),
 
-            // Revenue View Option
-            radioButtonWidget(
-              context,
-              label: 'Custom Date Data',
-              value: 'Custom Date Data',
-              groupValue: state.selectSortOption,
-              onTap: () {
-                context.read<RadioButtonCubit>().selectSortOption(
-                  newSortOption: 'Custom Date Data',
-                );
-              },
-            ),
-          ],
+              // Revenue View Option
+              radioButtonWidget(
+                context,
+                label: 'Custom Date Data',
+                value: 'Custom Date Data',
+                groupValue: state.selectSortOption,
+                onTap: () {
+                  context.read<RadioButtonCubit>().selectSortOption(
+                    newSortOption: 'Custom Date Data',
+                  );
+                },
+              ),
+            ],
+          ),
         );
       },
     );

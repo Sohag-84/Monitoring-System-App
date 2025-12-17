@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:monitoring_system/core/theme/app_colors.dart';
 import 'package:monitoring_system/features/details/presentation/cubit/radio_button_cubit.dart';
 
@@ -30,7 +31,7 @@ Widget radioButtonWidget(
         Text(
           label,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 14.sp,
             color: groupValue == value
                 ? AppColors.primaryColor
                 : AppColors.greyColor,

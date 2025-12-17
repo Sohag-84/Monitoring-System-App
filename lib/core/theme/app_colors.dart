@@ -14,4 +14,8 @@ class AppColors {
   static const activeColor = Color(0xFF78C6FF);
   static const inactiveColor = Color(0xFFFF4D4D);
   static const borderColor = Color(0xFFA5A7B9);
+  static const progressActiveColor = Color(0xFF4E91FD);
+  static final progressInactiveColor = Color(
+    0xFF55B4FF,
+  ).withValues(alpha: 0.15);
 }
