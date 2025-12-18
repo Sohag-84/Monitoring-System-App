@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (context) => ArrowButtonCubit()),
           ],
           child: MaterialApp.router(
-            title: 'Monitoring System',
+            title: 'SCUBE',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             routerConfig: AppPages.router,
