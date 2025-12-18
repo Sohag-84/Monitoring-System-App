@@ -5,6 +5,13 @@ The project follows **clean, scalable, and maintainable architecture principles*
 
 ---
 
+
+## 📸 Screenshots
+| Login | Dashboard | Data View | Data View | Revenue | Revenue | Empty |
+|------|-----------|-----------|-----------|---------|-----------|-------|
+| <img src="screenshots/login.png" width="150" /> | <img src="screenshots/dashboard.png" width="150"/> | <img src="screenshots/data_view.png" width="150"/> | <img src="screenshots/data_view-2.png" width="150"/> | <img src="screenshots/revenue.png" width="150"/> | <img src="screenshots/revenue-2.png" width="150"/> | <img src="screenshots/empty_page.png" width="150"/> |
+
+
 ## 🚀 Tech Stack
 
 - **Flutter**: `3.38.3` (managed via **FVM**)
